@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/pages/home_page.dart';
+import 'package:weather_app/pages/profile_page.dart';
+import 'package:weather_app/pages/about_page.dart';
 
 void main() {
   runApp(const WeatherApp());
@@ -30,11 +33,10 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
-  // Navigation tabs for Home, Profile, About
   final List<Widget> _pages = [
-    const HomePage(),  // Home page with country list
-    const ProfilePage(),  // Profile page
-    const AboutPage(),  // About page
+    const HomePage(),
+    const ProfilePage(),
+    const AboutPage(),
   ];
 
   @override
@@ -45,13 +47,10 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
         title: const Text(
           'Weather App',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
-      body: _pages[_currentIndex],  // Display the selected page
+      body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (int index) {
@@ -75,73 +74,6 @@ class _MainPageState extends State<MainPage> {
         ],
         selectedItemColor: Colors.blueAccent,
         unselectedItemColor: Colors.grey,
-      ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  final List<String> countries = const [
-    'United States',
-    'Canada',
-    'United Kingdom',
-    'Germany',
-    'Australia',
-    'France',
-    'Japan',
-    'South Korea',
-    'Brazil',
-    'India',
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: countries.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(
-            countries[index],
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          leading: const Icon(Icons.flag),
-          onTap: () {
-            // Handle on tap if needed
-          },
-        );
-      },
-    );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Profile Page',
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-}
-
-class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'About Page',
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
     );
   }
