@@ -28,7 +28,6 @@ class WeatherHomePage extends StatefulWidget {
 }
 
 class _WeatherHomePageState extends State<WeatherHomePage> {
-  // You can later modify these fields to fetch dynamic data
   String cityName = "Adama";
   String weatherCondition = "Sunny";
   double temperature = 29.0;
@@ -38,7 +37,14 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
-        title: const Text('Weather App'),
+        centerTitle: true, // Centers the title
+        title: Text(
+          'Weather App',
+          style: const TextStyle(
+            color: Colors.white, // Sets the title color to white
+            fontWeight: FontWeight.bold, // Makes the title bold
+          ),
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -52,7 +58,6 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // City Name
               Text(
                 cityName,
                 style: const TextStyle(
@@ -62,7 +67,6 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 ),
               ),
               const SizedBox(height: 10),
-              // Weather Condition
               Text(
                 weatherCondition,
                 style: const TextStyle(
@@ -71,7 +75,6 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 ),
               ),
               const SizedBox(height: 20),
-              // Temperature Display
               Text(
                 '${temperature.toStringAsFixed(1)}°C',
                 style: const TextStyle(
@@ -81,19 +84,15 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 ),
               ),
               const SizedBox(height: 30),
-              // Weather Icon (Sun, Cloud, Rain, etc.)
               const Icon(
-                Icons.wb_sunny_rounded, // You can change the icon based on weather condition
+                Icons.wb_sunny_rounded,
                 size: 100,
                 color: Colors.yellow,
               ),
               const SizedBox(height: 30),
-              // Refresh Button
               ElevatedButton(
                 onPressed: () {
-                  // Later, you can add logic to refresh weather data
                   setState(() {
-                    // Simulate new weather data
                     temperature = 27.5;
                     weatherCondition = "Cloudy";
                     cityName = "Adama";
