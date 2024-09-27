@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:weather_project/pages/about_page.dart';
 import 'package:weather_project/pages/home_page.dart';
@@ -35,7 +37,7 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const ProfilePage(),
+    const ProfileApp(),
     const AboutPage(),
   ];
 
